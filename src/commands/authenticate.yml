@@ -40,4 +40,3 @@ steps:
         gcloud auth login --brief --cred-file "<< parameters.gcp_cred_config_file_path >>"
         # Configure ADC
         echo "export GOOGLE_APPLICATION_CREDENTIALS='<< parameters.gcp_cred_config_file_path >>'" | tee -a $BASH_ENV
- 
