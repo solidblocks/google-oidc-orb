@@ -26,8 +26,8 @@ workflows:
           context: orb-publishing
           filters: *filters
       # Triggers the next workflow in the Orb Development Kit.
-      - orb-tools/continue:
-          pipeline-number: << pipeline.number >>
-          vcs-type: << pipeline.project.type >>
-          requires: [orb-tools/publish]
-          filters: *filters
+#      - orb-tools/continue:
+#          pipeline-number: << pipeline.number >>
+#          vcs-type: << pipeline.project.type >>
+#          requires: [orb-tools/publish]
+#          filters: *filters
