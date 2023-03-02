@@ -1,12 +1,9 @@
 description: >
-  This is a sample executor using Docker and Node. If you want to provide a custom environment in your orb, insert your image here.
+  This is a sample executor using cimg/gcp docker image. If you want to provide a custom environment in your orb, insert your image here.
   If you do not require an executor, you can simply delete this directory.
 docker:
-  - image: 'cimg/node:<<parameters.tag>>'
+  - image: cimg/gcp:<<parameters.tag>>
 parameters:
   tag:
-    default: lts
-    description: >
-      Pick a specific cimg/node image variant:
-      https://hub.docker.com/r/cimg/node/tags
+    default: 2023.02@sha256:ae5683b8ad68aa72a0ca159f9331b5c6393a62b63a7e38b17177e95dfe11d330
     type: string
