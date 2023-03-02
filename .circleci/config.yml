@@ -25,9 +25,16 @@ workflows:
           # Use a context to hold your publishing token.
           context: orb-publishing
           filters: *filters
-      # Triggers the next workflow in the Orb Development Kit.
-#      - orb-tools/continue:
-#          pipeline-number: << pipeline.number >>
-#          vcs-type: << pipeline.project.type >>
-#          requires: [orb-tools/publish]
-#          filters: *filters
+      - orb-tools/publish:
+          name: publish-prod
+          orb-name: solidblocks/google-oidc
+          vcs-type: << pipeline.project.type >>
+          pub-type: production
+          requires:
+            [orb-tools/lint, orb-tools/pack, shellcheck/check]
+          context: orb-publishing
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v[0-9]+\.[0-9]+\.[0-9]+$/
