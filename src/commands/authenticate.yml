@@ -1,8 +1,5 @@
 description: "Authenticate with GCP using a CircleCI OIDC token."
 parameters:
-  project_id:
-    type: env_var_name
-    default: GCP_PROJECT_ID
   project_number:
     type: env_var_name
     default: GCP_PROJECT_NUMBER
